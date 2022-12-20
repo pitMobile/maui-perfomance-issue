@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
+             xmlns:local="clr-namespace:MauiPerformance"
+             x:Class="MauiPerformance.MyContentView"
+             x:DataType="vm:ContentViewModel"
+             BackgroundColor="Coral">
+    <Grid BindableLayout.ItemsSource="{Binding Views}">
+        <BindableLayout.ItemTemplateSelector>
+            <local:ViewTemplateSelector>
+                <local:ViewTemplateSelector.TileTemplate>
+                    <DataTemplate>
+                        <local:TileView/>
+                    </DataTemplate>
+                </local:ViewTemplateSelector.TileTemplate>
+
+                <local:ViewTemplateSelector.ListTemplate>
+                    <DataTemplate>
+                        <local:MyListView/>
+                    </DataTemplate>
+                </local:ViewTemplateSelector.ListTemplate>
+
+                <local:ViewTemplateSelector.EntityTemplate>
+                    <DataTemplate>
+                        <ScrollView>
+                            <local:MyEntityView/>
+
+                        </ScrollView>
+                    </DataTemplate>
+                </local:ViewTemplateSelector.EntityTemplate>
+
+            </local:ViewTemplateSelector>
+
+        </BindableLayout.ItemTemplateSelector>
+    </Grid>
+</ContentView>
+

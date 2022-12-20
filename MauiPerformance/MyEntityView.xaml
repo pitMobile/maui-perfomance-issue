@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPerformance.MyEntityView"
+             xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
+             x:DataType="vm:MyEntityViewModel">
+    <Grid>
+        <StackLayout BindableLayout.ItemsSource="{Binding Sections}" Spacing="20">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="vm:SectionViewModel">
+                    <StackLayout BackgroundColor="LightGray">
+                        <Label Text="{Binding Header}" FontSize="25"/>
+                        <StackLayout BindableLayout.ItemsSource="{Binding Rows}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="vm:RowViewModel">
+                                    <Grid ColumnDefinitions="250,*">
+                                        <Label Text="{Binding Label}"/>
+                                        <Entry Text="{Binding Value}" Grid.Column="1"/>
+                                    </Grid>
+
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+
+                        </StackLayout>
+                    </StackLayout>
+
+                </DataTemplate>
+
+            </BindableLayout.ItemTemplate>
+
+        </StackLayout>
+
+    </Grid>
+</ContentView>
+

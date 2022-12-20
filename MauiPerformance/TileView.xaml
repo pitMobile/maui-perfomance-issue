@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
+             x:Class="MauiPerformance.TileView"
+             x:DataType="vm:TileViewModel"
+             Margin="10">
+    <ScrollView>
+        <FlexLayout BindableLayout.ItemsSource="{Binding Tiles}" Wrap="Wrap">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="vm:IMyTile">
+                    <Border Stroke="Red" BackgroundColor="White" WidthRequest="200" HeightRequest="200" Margin="10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="15"/>
+
+                        </Border.StrokeShape>
+                        <Grid RowDefinitions="*, 30">
+                            <Image Source="{Binding Image}"/>
+                            <Label Text="{Binding Text}" Grid.Row="1" HorizontalOptions="Center"/>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+
+            </BindableLayout.ItemTemplate>
+        
+        </FlexLayout>
+    </ScrollView>
+</ContentView>
+

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
+             xmlns:local="clr-namespace:MauiPerformance"
+             x:Class="MauiPerformance.MainPage"
+             x:DataType="vm:MainPageViewModel">
+    
+    <Grid BackgroundColor="Beige" RowDefinitions="50,*,80">
+        <HorizontalStackLayout Spacing="20">
+            <Button Text="Back" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="back"/>
+            <Button Text="List" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="list"/>
+            <Button Text="Entity" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="entity"/>
+            <Button Text="Tile" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="tile"/>
+        </HorizontalStackLayout>
+
+        <Grid Grid.Row="1" BindableLayout.ItemsSource="{Binding ContentViews}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+
+                    <local:MyContentView/>
+                </DataTemplate>
+
+            </BindableLayout.ItemTemplate>
+
+        </Grid>
+
+
+        <Grid Grid.Row="2" BackgroundColor="Aquamarine">
+            <Label Text="Performance check" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </Grid>
+</ContentPage>
+
