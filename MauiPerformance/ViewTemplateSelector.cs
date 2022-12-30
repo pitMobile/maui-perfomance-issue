@@ -7,7 +7,9 @@ namespace MauiPerformance
     {
         public DataTemplate TileTemplate { get; set; }
         public DataTemplate ListTemplate { get; set; }
-        public DataTemplate EntityTemplate { get; set; }
+        public DataTemplate EntityTemplateStack { get; set; }
+        public DataTemplate EntityTemplateGrid { get; set; }
+        public DataTemplate EntityTemplateList { get; set; }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
@@ -19,9 +21,17 @@ namespace MauiPerformance
             {
                 return ListTemplate;
             }
-            if (item is MyEntityViewModel)
+            if (item is MyEntityViewModel myEntityViewModel)
             {
-                return EntityTemplate;
+                switch (myEntityViewModel.TypeName)
+                {
+                    case "entityGrid":
+                        return EntityTemplateGrid;
+                    case "entityStack":
+                        return EntityTemplateStack;
+                    case "entityList":
+                        return EntityTemplateList;
+                }
             }
             return null;
         }

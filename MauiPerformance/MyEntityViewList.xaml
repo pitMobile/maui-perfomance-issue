@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CollectionView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
+             x:Class="MauiPerformance.MyEntityViewList"
+             x:DataType="vm:MyEntityViewModel"
+             IsGrouped="True"
+             ItemSizingStrategy="MeasureAllItems"
+             ItemsSource="{Binding Sections}">
+    <CollectionView.ItemTemplate>
+        <DataTemplate x:DataType="vm:RowViewModel">
+            <Grid HeightRequest="50" ColumnDefinitions="250,*">
+                <Label Text="{Binding Label, Mode=OneTime}"/>
+                <Entry Grid.Column="1" Text="{Binding Value}"/>
+            </Grid>
+
+        </DataTemplate>
+
+    </CollectionView.ItemTemplate>
+
+    <CollectionView.GroupHeaderTemplate>
+        <DataTemplate x:DataType="vm:SectionViewModel">
+            <Label Text="{Binding Header, Mode=OneTime}"
+                   BackgroundColor="#AA0000"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+        </DataTemplate>
+    </CollectionView.GroupHeaderTemplate>
+</CollectionView>
+

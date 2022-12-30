@@ -33,9 +33,11 @@ namespace MauiPerformance.ViewModels
                 case "tile":
                     ContentViews.Add(GetTiles()); ;
                     break;
-                case "entity":
+                case "entityGrid":
+                case "entityStack":
+                case "entityList":
                     var views = new List<IMyView>();
-                    views.Add(new MyEntityViewModel());
+                    views.Add(new MyEntityViewModel(sParameter));
                     ContentViews.Add(new ContentViewModel(views));
                     break;
                 case "list":

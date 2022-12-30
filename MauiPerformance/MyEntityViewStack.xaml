@@ -1,27 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiPerformance.MyEntityView"
+             x:Class="MauiPerformance.MyEntityViewStack"
              xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
              x:DataType="vm:MyEntityViewModel">
-    <Grid RowDefinitions="{Binding SectionRows, Mode=OneTime}" BindableLayout.ItemsSource="{Binding Sections}">
+    <Grid>
+        <VerticalStackLayout BindableLayout.ItemsSource="{Binding Sections}" Spacing="20">
             <BindableLayout.ItemTemplate>
                 <DataTemplate x:DataType="vm:SectionViewModel">
-                    <Grid BackgroundColor="LightGray" RowDefinitions="50, Auto" Grid.Row="{Binding Row, Mode=OneTime}">
+                    <VerticalStackLayout BackgroundColor="Cyan">
                         <Label Text="{Binding Header, Mode=OneTime}" FontSize="25"/>
-                        <Grid RowDefinitions="{Binding RowDefs, Mode=OneTime}" BindableLayout.ItemsSource="{Binding .}" Grid.Row="1">
+                        <VerticalStackLayout BindableLayout.ItemsSource="{Binding .}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate x:DataType="vm:RowViewModel">
-                                    <Grid ColumnDefinitions="250,*" Grid.Row="{Binding Row, Mode=OneTime}">
+                                    <Grid ColumnDefinitions="250,*">
                                         <Label Text="{Binding Label, Mode=OneTime}"/>
                                         <Entry Grid.Column="1" Text="{Binding Value}"/>
                                     </Grid>
+
                                 </DataTemplate>
+
                             </BindableLayout.ItemTemplate>
-                        </Grid>
-                    </Grid>
+
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+
                 </DataTemplate>
+
             </BindableLayout.ItemTemplate>
+
+        </VerticalStackLayout>
+        
     </Grid>
 </ContentView>
 

@@ -21,14 +21,32 @@
                     </DataTemplate>
                 </local:ViewTemplateSelector.ListTemplate>
 
-                <local:ViewTemplateSelector.EntityTemplate>
+                <local:ViewTemplateSelector.EntityTemplateGrid>
                     <DataTemplate>
                         <ScrollView>
                             <local:MyEntityView/>
 
                         </ScrollView>
                     </DataTemplate>
-                </local:ViewTemplateSelector.EntityTemplate>
+                </local:ViewTemplateSelector.EntityTemplateGrid>
+
+                <local:ViewTemplateSelector.EntityTemplateStack>
+                    <DataTemplate>
+                        <ScrollView>
+                            <local:MyEntityViewStack/>
+
+                        </ScrollView>
+                    </DataTemplate>
+                </local:ViewTemplateSelector.EntityTemplateStack>
+
+                <local:ViewTemplateSelector.EntityTemplateList>
+                    <DataTemplate>
+                        <ScrollView>
+                            <local:MyEntityViewList/>
+
+                        </ScrollView>
+                    </DataTemplate>
+                </local:ViewTemplateSelector.EntityTemplateList>
 
             </local:ViewTemplateSelector>
 

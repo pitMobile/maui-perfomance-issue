@@ -3,14 +3,19 @@ using System.Collections.ObjectModel;
 
 namespace MauiPerformance.ViewModels
 {
-	public class SectionViewModel : PropertyChangedProvider
+	public class SectionViewModel : List<RowViewModel>
 	{
         public string Header { get; set; }
+        public int Row { get; }
+        public RowDefinitionCollection RowDefs { get; }
 
-        public ObservableCollection<RowViewModel> Rows { get; }
-        public SectionViewModel(string header)
+
+        //public List<RowViewModel> Rows { get; }
+        public SectionViewModel(string header, int row)
 		{
-            Rows = new ObservableCollection<RowViewModel>();
+            Row = row;
+            RowDefs = new RowDefinitionCollection();
+            //Rows = new List<RowViewModel>();
             Header = header;
 
             Random random = new Random();
@@ -18,7 +23,8 @@ namespace MauiPerformance.ViewModels
 
             for (int i = 0; i < count; i++)
             {
-                Rows.Add(new RowViewModel());
+                this.Add(new RowViewModel(i));
+                RowDefs.Add(new RowDefinition(new GridLength(50)));
             }
         }
 	}

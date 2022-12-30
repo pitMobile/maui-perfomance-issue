@@ -19,7 +19,7 @@ namespace MauiPerformance.ViewModels
 			Items = new ObservableCollection<ListItem>();
 
             Random random = new Random();
-            int count = random.Next(25, 100);
+			int count = random.Next(25, 100);
 
 			for (int i = 0; i < count; i++)
 			{

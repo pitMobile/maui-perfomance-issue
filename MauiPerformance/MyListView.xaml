@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiPerformance.MyListView"
              xmlns:vm="clr-namespace:MauiPerformance.ViewModels"
-             x:DataType="vm:MyListViewModel" ItemsSource="{Binding Items}">
+             x:DataType="vm:MyListViewModel"
+             ItemsSource="{Binding Items}"
+             BackgroundColor="BlueViolet">
     <CollectionView.ItemTemplate>
         <DataTemplate x:DataType="vm:ListItem">
             <Grid HeightRequest="100" ColumnDefinitions="100,*">

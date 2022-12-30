@@ -15,12 +15,12 @@
 		<ApplicationTitle>MauiPerformance</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.mauiperformance</ApplicationId>
+		<ApplicationId>com.pit.mauiperformance</ApplicationId>
 		<ApplicationIdGuid>1cbed9a1-5300-4d95-a570-4d46304e20dc</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
+		<ApplicationVersion>2</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -31,7 +31,20 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <UseInterpreter>false</UseInterpreter>
 	  <CreatePackage>false</CreatePackage>
+	  <CodesignProvision>MauiPerformanceDev</CodesignProvision>
+	  <CodesignKey>iPhone Developer</CodesignKey>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	  <CodesignProvision>MauiPerformanceDist</CodesignProvision>
+	  <CodesignKey>Apple Distribution: pit - cup GmbH (4TV2T77SS4)</CodesignKey>
+	  <BuildIpa>true</BuildIpa>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	  <DebugSymbols>true</DebugSymbols>
+	  <WarningLevel>4</WarningLevel>
 	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
@@ -72,6 +85,12 @@
 	    <SubType></SubType>
 	  </MauiXaml>
 	  <MauiXaml Update="MyEntityView.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="MyEntityViewStack.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="MyEntityViewList.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
 	</ItemGroup>

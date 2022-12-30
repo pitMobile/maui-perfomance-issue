@@ -10,7 +10,9 @@
         <HorizontalStackLayout Spacing="20">
             <Button Text="Back" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="back"/>
             <Button Text="List" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="list"/>
-            <Button Text="Entity" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="entity"/>
+            <Button Text="Entity Grid" WidthRequest="100" Command="{Binding TopBarCommand}" CommandParameter="entityGrid"/>
+            <Button Text="Entity Stack" WidthRequest="100" Command="{Binding TopBarCommand}" CommandParameter="entityStack"/>
+            <Button Text="Entity List" WidthRequest="100" Command="{Binding TopBarCommand}" CommandParameter="entityList"/>
             <Button Text="Tile" WidthRequest="60" Command="{Binding TopBarCommand}" CommandParameter="tile"/>
         </HorizontalStackLayout>
 
